@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gexnys Studios</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      overflow-x: hidden;
+      cursor: pointer; 
+      user-select: none;
+    }
+
+    .screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100vh;
+      padding: 50px 20px;
+      overflow-y: auto;
+      background: rgba(15, 32, 39, 0.75);
+      backdrop-filter: blur(6px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+      transform: scale(0.96);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 0;
+    }
+
+    .screen.visible {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      z-index: 10;
+    }
+
+    #screen-1 {
+      z-index: 20;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 15;
+    }
+
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      transition: 0.4s;
+    }
+
+    h1:hover, h2:hover {
+      text-shadow: 0 0 20px #4fc3f7, 0 0 30px #4fc3f7;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #4fc3f7;
+      padding-bottom: 10px;
+      transition: 0.4s;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-bottom: 30px;
+      color: #cbd5e1cc;
+      text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    #contact-info {
+      background: rgba(15, 32, 39, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #4fc3f7aa;
+      max-width: 500px;
+      margin: 0 auto 30px auto;
+      color: #bcd9f7cc;
+      text-align: left;
+    }
+
+    ul {
+      list-style: none;
+      max-width: 700px;
+      text-align: left;
+      color: #bcd9f7cc;
+      margin: 0 auto;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: "•";
+      color: #4fc3f7;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.5rem;
+      line-height: 1;
+      top: 3px;
+    }
+
+    .screen h1,
+    .screen h2,
+    .screen p,
+    .screen ul {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .screen.visible h1 { animation-delay: 0.4s; }
+    .screen.visible h2 { animation-delay: 0.6s; }
+    .screen.visible p,
+    .screen.visible ul { animation-delay: 0.8s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      p, ul li {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="screen-1" class="screen visible" aria-label="Hoşgeldiniz ekranı">
+    <div id="particles-js"></div>
+    <h1>Gexnys Studios</h1>
+    <p>Geleceğin oyun istasyonu<br></p>
+  </section>
+
+  <section id="screen-2" class="screen" aria-hidden="true" aria-label="Hakkımızda ve iletişim bilgileri">
+    <h2>Hakkımızda</h2>
+    <p>
+      Gexnys Studios, yenilikçi ve sürükleyici oyun deneyimleri yaratmaya odaklanmış bir oyun stüdyosudur.
+      Yaratıcı ekip ve son teknoloji kullanarak, oyunculara unutulmaz maceralar sunuyoruz.
+    </p>
+    <h2>İletişim</h2>
+    <div id="contact-info">
+      <p><strong>Email:</strong> developergokhan@proton.me</p>
+      <p><strong>Telefon:</strong> +90 ---------</p>
+      <p><strong>Adres:</strong>İstanbul</p>
+    </div>
+    <p>Daha Fazlası</p>
+  </section>
+
+  <section id="screen-3" class="screen" aria-hidden="true" aria-label="Çalışanlar, Amaç ve Oyunlar">
+    <h2>Çalışanlar</h2>
+    <ul>
+      <li>Gökhan Öztürk - Kurucu</li>
+      <li>??? - Yazılım Mühendisi</li>
+      <li>??? - Grafik Tasarımcı</li>
+      <li>??? - Proje Yöneticisi</li>
+    </ul>
+
+    <h2>Amaç</h2>
+    <p>
+      Gexnys Studios olarak hedefimiz, yaratıcı ve özgün oyunlar geliştirerek
+      oyunculara keyifli ve unutulmaz deneyimler sunmaktır.
+    </p>
+
+    <h2>Oyunlar</h2>
+    <ul>
+      <li>Yakında</li>
+      <li>...</li>
+    </ul>
+    <p>Başa Dön</p>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5, "random": true },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 120,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 0.7 } },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+
+    const screens = [
+      document.getElementById('screen-1'),
+      document.getElementById('screen-2'),
+      document.getElementById('screen-3')
+    ];
+
+    let currentIndex = 0;
+
+    function showScreen(index) {
+      screens.forEach((screen, i) => {
+        if (i === index) {
+          screen.classList.add('visible');
+          screen.setAttribute('aria-hidden', 'false');
+          if(i === 0){
+            document.getElementById('particles-js').style.display = 'block';
+          } else {
+            document.getElementById('particles-js').style.display = 'none';
+          }
+        } else {
+          screen.classList.remove('visible');
+          screen.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+
+    function fadeToScreen(nextIndex) {
+      const currentScreen = screens[currentIndex];
+      currentScreen.style.opacity = '1';
+      currentScreen.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+      currentScreen.style.transform = 'scale(0.96)';
+      currentScreen.style.opacity = '0';
+
+      setTimeout(() => {
+        currentScreen.classList.remove('visible');
+        currentScreen.setAttribute('aria-hidden', 'true');
+        currentScreen.style.opacity = '';
+        currentScreen.style.transform = '';
+        currentScreen.style.transition = '';
+
+        currentIndex = nextIndex;
+        showScreen(currentIndex);
+      }, 1500);
+    }
+
+    document.body.addEventListener('click', () => {
+      let nextIndex = (currentIndex + 1) % screens.length;
+      fadeToScreen(nextIndex);
+    });
+  </script>
+
+</body>
+</html>
